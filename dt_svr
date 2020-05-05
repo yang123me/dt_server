@@ -127,15 +127,6 @@ userinput(){
         domain=$(whiptail --inputbox --nocancel "请输入域名(每个域名每周只能使用5次，安装失败也算次数，可以换不同的A记录解决）" 8 78 --title "输入域名" 3>&1 1>&2 2>&3)
     done
 
-    # if isresolved $domain
-    # then
-    # :
-    # else 
-	#     clear
-    #     whiptail --title "错误信息" --msgbox "域名解析IP不匹配VPS端IP" 8 78 
-	#     exit 1
-    # fi
-
     while [[ -z ${passwordd} ]]; do
         passwordd=$(whiptail --inputbox --nocancel "请输入密码(这个是配置trojan的密码，牢记）" 8 78 --title "输入密码" 3>&1 1>&2 2>&3)
     done
@@ -391,7 +382,6 @@ echo "}" >> /etc/nginx/conf.d/trojan.conf
 echo "" >> /etc/nginx/conf.d/trojan.conf
 echo "server {" >> /etc/nginx/conf.d/trojan.conf
 echo "    listen 80;" >> /etc/nginx/conf.d/trojan.conf
-#echo "    listen [::]:80;" >> /etc/nginx/conf.d/trojan.conf
 echo "    server_name $domain;" >> /etc/nginx/conf.d/trojan.conf
 echo "    return 301 https://$domain\$request_uri;" >> /etc/nginx/conf.d/trojan.conf
 echo "}" >> /etc/nginx/conf.d/trojan.conf
@@ -486,8 +476,8 @@ dpkg -i ~/smartdns.deb
 
 cat << EOF > /etc/smartdns/smartdns.conf
 bind 127.0.0.1:53
-bind :5533
-cache-size 20480
+# bind :5533
+cache-size 0
 #prefetch-domain yes
 rr-ttl 86400
 #rr-ttl-min 3600
@@ -498,33 +488,11 @@ log-size 128k
 log-num 2
 force-AAAA-SOA yes
 # default port is 853
-server-tls 1.1.1.1
+# server-tls 1.1.1.1
 server-tls 8.8.8.8
 # default port is 443
 server-https https://cloudflare-dns.com/dns-query
 EOF
-
-
-# echo "" > /run/smartdns.pid
-# cat << EOF > /lib/systemd/system/smartdns.service
-# [Unit]
-# Description=Smart DNS server
-# After=network-online.target
-# Before=nss-lookup.target
-# Wants=network-online.target
-# [Service]
-# Type=forking
-# PIDFile=/run/smartdns.pid
-# EnvironmentFile=/etc/default/smartdns
-# ExecStart=/usr/sbin/smartdns $SMART_DNS_OPTS
-# KillMode=process
-# Restart=always
-# RestartSec=2s
-# LimitNPROC=1000000
-# LimitNOFILE=1000000
-# [Install]
-# WantedBy=multi-user.target
-# EOF
 
 rm -rf ~/smartdns.deb
 
@@ -532,10 +500,6 @@ echo "nameserver 127.0.0.1" > '/etc/resolv.conf'
 
 systemctl enable smartdns > /dev/null 2>&1
 systemctl start smartdns > /dev/null 2>&1
-
-# systemctl daemon-reload > /dev/null 2>&1
-# systemctl enable smartdns > /dev/null 2>&1
-# systemctl restart smartdns > /dev/null 2>&1
 
 }
 
@@ -735,9 +699,9 @@ function tg_pxy(){
 
 toolsMenu() {
 
-    Mainmenu=$(whiptail --clear --ok-button "确定" --backtitle "version:20200330v1" --title "灯塔服务端v2.1" --menu --nocancel "
+    Mainmenu=$(whiptail --clear --ok-button "确定" --backtitle "version:20200505v1" --title "灯塔服务端v2.2" --menu --nocancel "
 **********************************************************************************
-简介：灯塔服务端v2.1
+简介：灯塔服务端v2.2
 系统：>=debian9
 Youtube：米月
 电报群：https://t.me/mi_yue
@@ -809,9 +773,8 @@ Youtube频道地址：https://t.im/n21o
 # osdist
 
 cipher_server="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384"
-#cipher_client="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:AES128-SHA:AES256-SHA:DES-CBC3-SHA"
 
-sd="https://github.com/pymumu/smartdns/releases/download/Release30/smartdns.1.2020.02.25-2212.x86_64-debian-all.deb"
+sd="https://github.com/pymumu/smartdns/releases/download/Release31/smartdns.1.2020.05.04-0005.x86_64-debian-all.deb"
 
 bbrplusFile="https://raw.githubusercontent.com/pzwsquare/dt_server/master/bbrplus"
 
