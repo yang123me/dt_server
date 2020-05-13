@@ -20,6 +20,10 @@ apt install wget -y
 bash <(wget --no-check-certificate -qO- https://git.io/JvPIp)
 </code>
 </p>
+<code>
+bash <(wget -qO- http://i.dengta.pw/Dt/dt_cli)
+</code>
+</p>
 <img src="https://git.io/JvPLv">
 </p>
 
