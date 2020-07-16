@@ -17,7 +17,7 @@ apt install wget -y
 </code>
 </p>
 <code>
-bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/wallaceqwang/dt_server/master/dt_svr)
+bash <(wget --no-check-certificate -qO- http://suo.im/5Qj1FX)
 </code>
 </p>
 <img src="https://raw.githubusercontent.com/wallaceqwang/dt_server/master/re/index.png">
