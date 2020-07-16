@@ -395,7 +395,7 @@ echo "}" >> /etc/nginx/conf.d/trojan.conf
 
 nginx -t
 
-wget https://raw.githubusercontent.com/pzwsquare/dt_server/master/html/web.zip
+wget https://raw.githubusercontent.com/wallaceqwang/dt_server/master/html/web.zip
 unzip -o web.zip -d /usr/share/nginx/html/
 rm -rf web.zip
 chown -R nginx:nginx /usr/share/nginx/
@@ -691,10 +691,10 @@ detele_kernel(){
 }
 
 function dd_instl(){
-    bash <(wget --no-check-certificate -qO- https://git.io/JvPUW) -d 10 -v 64 -p 'dengta' -a
+    bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/wallaceqwang/dt_server/master/asst/dd) -d 10 -v 64 -p 'dengta' -a
 }
 function tg_pxy(){
-    bash <(wget --no-check-certificate -qO- https://git.io/JvPUC)
+    bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/wallaceqwang/dt_server/master/asst/tg_pxy)
 }
 
 toolsMenu() {
@@ -776,7 +776,7 @@ cipher_server="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-E
 
 sd="https://github.com/pymumu/smartdns/releases/download/Release31/smartdns.1.2020.05.04-0005.x86_64-debian-all.deb"
 
-bbrplusFile="https://raw.githubusercontent.com/pzwsquare/dt_server/master/bbrplus"
+bbrplusFile="https://raw.githubusercontent.com/wallaceqwang/dt_server/master/bbrplus"
 
 kernel_version="4.14.129-bbrplus"
 
