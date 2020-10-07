@@ -14,7 +14,7 @@ apt update && apt install curl vim wget -y
 </code>
 </p>
 <code>
-bash <(wget --no-check-certificate -qO- http://suo.im/5Qj1FX)
+bash <(wget --no-check-certificate -qO- https://git.io/JUpTl)
 </code>
 </p>
 <img src="https://raw.githubusercontent.com/wallaceqwang/dt_server/master/re/index.png">
