@@ -16,9 +16,11 @@ apt update && apt install curl vim wget -y
 <code>
 bash <(wget --no-check-certificate -qO- https://git.io/JUpTl)
 </code>
+</p>
 <code>
 如果不行，试试下面这个：
 </code>
+</p>
 <code>
 bash <(wget --no-check-certificate -qO- https://git.io/JUpTw)
 </code>
