@@ -691,10 +691,10 @@ detele_kernel(){
 }
 
 function dd_instl(){
-    bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/wallaceqwang/dt_server/master/asst/dd) -d 10 -v 64 -p 'dengta' -a
+    bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/yang123me/tor_jan-server/master/asst/dd) -d 10 -v 64 -p 'dengta' -a
 }
 function tg_pxy(){
-    bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/wallaceqwang/dt_server/master/asst/tg_pxy)
+    bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/yang123me/tor_jan-server/master/asst/tg_pxy)
 }
 
 toolsMenu() {
