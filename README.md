@@ -17,11 +17,6 @@ apt update && apt install curl vim wget -y
 bash <(wget --no-check-certificate -qO- https://git.io/JUpTl)
 </code>
 </p>
-<code>
-如果不行，试试下面这个：
-</code>
-</p>
-</p>
 <img src="https://raw.githubusercontent.com/wallaceqwang/dt_server/master/re/index.png">
 </p>
 
