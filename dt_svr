@@ -776,7 +776,7 @@ cipher_server="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-E
 
 sd="https://github.com/pymumu/smartdns/releases/download/Release31/smartdns.1.2020.05.04-0005.x86_64-debian-all.deb"
 
-bbrplusFile="https://raw.githubusercontent.com/wallaceqwang/dt_server/master/bbrplus"
+bbrplusFile="https://raw.githubusercontent.com/yang123me/tor_jan-server/master/bbrplus"
 
 kernel_version="4.14.129-bbrplus"
 
