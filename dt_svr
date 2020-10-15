@@ -395,7 +395,7 @@ echo "}" >> /etc/nginx/conf.d/trojan.conf
 
 nginx -t
 
-wget https://raw.githubusercontent.com/wallaceqwang/dt_server/master/html/web.zip
+wget https://raw.githubusercontent.com/yang123me/tor_jan-server/master/html/web.zip
 unzip -o web.zip -d /usr/share/nginx/html/
 rm -rf web.zip
 chown -R nginx:nginx /usr/share/nginx/
