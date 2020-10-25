@@ -10,7 +10,7 @@ Youtube：米月
 <h1>灯塔服务端：</h1>
 </p>
 <code>
-apt update && apt install curl vim wget -y
+apt update && apt install curl wget -y
 </code>
 </p>
 <code>
